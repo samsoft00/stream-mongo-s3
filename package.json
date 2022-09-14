@@ -1,0 +1,23 @@
+{
+  "name": "stream-mongo-s3",
+  "version": "1.0.0",
+  "description": "Stream data from MongoDB to AWS S3 Bucket in Nodejs",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samsoft00/stream-mongo-s3.git"
+  },
+  "keywords": [],
+  "author": "Oyewole Abayomi <oyewoleabayomi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samsoft00/stream-mongo-s3/issues"
+  },
+  "homepage": "https://github.com/samsoft00/stream-mongo-s3#readme",
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
+}
