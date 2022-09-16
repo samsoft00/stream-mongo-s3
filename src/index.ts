@@ -5,7 +5,7 @@ import { stringify } from 'csv/.';
 import { Db, MongoClient } from 'mongodb'
 import { PassThrough, Transform, pipeline } from 'stream'
 
-// tyoes
+// types
 type AnyObject = { [key: string]: any }
 type StreamUpload = { 
     writeStream: PassThrough, 
@@ -15,6 +15,7 @@ type StreamUpload = {
 let db: Db;
 const asyncPipeline = promisify(pipeline)
 
+// config
 let config: AnyObject = {
     region: 'us-east-1',
     aws_access_key_id: process.env.AWS_ACCESS_KEY,
@@ -36,6 +37,7 @@ const s3StreamUploder = (params: AWS.S3.PutObjectRequest): StreamUpload => {
 const handler = async (): Promise<any> => {
 
     if (!db) {
+        // setup mongo connection
         const client = new MongoClient(process.env.DB_URL, {
           useNewUrlParser: true,
           useUnifiedTopology: true
@@ -45,6 +47,7 @@ const handler = async (): Promise<any> => {
         db = client.db(process.env.DB_NAME)
      }
      
+     // set up aws config
      AWS.config.update({
         accessKeyId: process.env.AWS_ACCESS_KEY,
         secretAccessKey: process.env.AWS_SECRET_KEY,
